@@ -52,15 +52,28 @@ __END__
 
 =head1 NAME
 
-SQL::Maker::Plugin::JoinSelect - It's new $module
+SQL::Maker::Plugin::JoinSelect - Plugin of SQL::Maker for making SQL contained `JOIN`
 
 =head1 SYNOPSIS
 
-    use SQL::Maker::Plugin::JoinSelect;
+    use SQL::Maker;
+    SQL::Maker->load_plugin('JoinSelect');
+
+    my $builder = SQL::Maker->new(driver => 'SQLite', new_line => ' ');
+    my ($sql, @binds) = $builder->join_select(
+        user => [
+            item => 'user.id = item.user_id',
+        ],
+        ['*'],
+        {
+            'user.id' => 1,
+        },
+    );
+    print $sql; #=> 'SELECT * FROM "user" INNER JOIN "item" ON user.id = item.user_id WHERE ("user"."id" = ?)';
 
 =head1 DESCRIPTION
 
-SQL::Maker::Plugin::JoinSelect is ...
+SQL::Maker::Plugin::JoinSelect is Plugin of SQL::Maker for making SQL contained `JOIN`.
 
 =head1 LICENSE
 

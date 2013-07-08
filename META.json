@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "Plugin of SQL::Maker for making SQL contained `JOIN`",
    "author" : [
       "Masayuki Matsuki <y.songmu@gmail.com>"
    ],
@@ -42,7 +42,8 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008005"
+            "SQL::Maker" : "0.12",
+            "perl" : "5.008001"
          }
       },
       "test" : {
@@ -52,5 +53,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/Songmu/p5-SQL-Maker-Plugin-JoinSelect/issues"
+      },
+      "homepage" : "https://github.com/Songmu/p5-SQL-Maker-Plugin-JoinSelect",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/Songmu/p5-SQL-Maker-Plugin-JoinSelect.git",
+         "web" : "https://github.com/Songmu/p5-SQL-Maker-Plugin-JoinSelect"
+      }
+   },
    "version" : "0.01"
 }

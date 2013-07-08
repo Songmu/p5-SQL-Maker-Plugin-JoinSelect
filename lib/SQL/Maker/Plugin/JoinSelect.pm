@@ -4,8 +4,7 @@ use strict;
 use warnings;
 our $VERSION = "0.01";
 
-use Carp;
-
+use Carp ();
 our @EXPORT = qw/join_select/;
 
 sub join_select {
@@ -74,6 +73,30 @@ SQL::Maker::Plugin::JoinSelect - Plugin of SQL::Maker for making SQL contained `
 =head1 DESCRIPTION
 
 SQL::Maker::Plugin::JoinSelect is Plugin of SQL::Maker for making SQL contained `JOIN`.
+
+=head1 INTERFACE
+
+=head2 Method
+
+=head3 L<< ($sql, @binds) = $sql_maker->join_select($table, $join_conds, \@fields, \%where, \%opt) >>
+
+L<$table>, L<\@fields>, L<\%where> and L<\%opt> are same as arguments of L<< $sql_maker->select >>.
+
+L<$join_conds> is an ArrayRef containing sequenced pair of L<$table> and L<$join_cond> as follows.
+
+    [
+        'user_item' => {'user.id' => 'user_item.user_id'},
+        'item'      => 'user_item.item_id => item.id',
+        ...
+    ]
+
+Each <$join_cond> can be ArrayRef, HashRef and String same as condition argument of L<SQL::Maker::Select#add_join>.
+
+Join type is 'inner' by default. If you want to specify join type, you can use ArrayRef like follows.
+
+    [
+        'item' => ['outer' => {'user.id' => 'item.user_id'}],
+    ]
 
 =head1 LICENSE
 

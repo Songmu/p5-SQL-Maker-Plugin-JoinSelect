@@ -27,11 +27,11 @@ SQL::Maker::Plugin::JoinSelect is Plugin of SQL::Maker for making SQL contained 
 
 ## Method
 
-### ["($sql, @binds) = $sql\_maker->join\_select($table, $join\_conds, \\@fields, \\%where, \\%opt)"](#($sql, @binds) = $sql\_maker->join\_select($table, $join\_conds, \\@fields, \\%where, \\%opt))
+### `($sql, @binds) = $sql_maker->join_select($table, $join_conds, \@fields, \%where, \%opt)`
 
-[$table](http://search.cpan.org/perldoc?$table), [\\@fields](http://search.cpan.org/perldoc?\\@fields), [\\%where](http://search.cpan.org/perldoc?\\%where) and [\\%opt](http://search.cpan.org/perldoc?\\%opt) are same as arguments of [$sql\_maker->select](http://search.cpan.org/perldoc?$sql\_maker->select).
+`$table`, `\@fields`, `\%where` and `\%opt` are same as arguments of `$sql_maker->select`.
 
-[$join\_conds](http://search.cpan.org/perldoc?$join\_conds) is an ArrayRef containing sequenced pair of [$table](http://search.cpan.org/perldoc?$table) and [$join\_cond](http://search.cpan.org/perldoc?$join\_cond) as follows.
+`$join_conds` is an ArrayRef containing sequenced pair of `$table` and `$join_cond` as follows.
 
     [
         'user_item' => {'user.id' => 'user_item.user_id'},
@@ -39,7 +39,7 @@ SQL::Maker::Plugin::JoinSelect is Plugin of SQL::Maker for making SQL contained 
         ...
     ]
 
-Each <$join\_cond> can be ArrayRef, HashRef and String same as condition argument of [SQL::Maker::Select\#add\_join](http://search.cpan.org/perldoc?SQL::Maker::Select\#add\_join).
+Each `$join_cond` can be ArrayRef, HashRef and String same as condition argument of [SQL::Maker::Select](http://search.cpan.org/perldoc?SQL::Maker::Select)'s `add_join` method.
 
 Join type is 'inner' by default. If you want to specify join type, you can use ArrayRef like follows.
 

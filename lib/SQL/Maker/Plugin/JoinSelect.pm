@@ -2,7 +2,7 @@ package SQL::Maker::Plugin::JoinSelect;
 use 5.008001;
 use strict;
 use warnings;
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 use Carp ();
 our @EXPORT = qw/join_select/;
@@ -78,11 +78,11 @@ SQL::Maker::Plugin::JoinSelect is Plugin of SQL::Maker for making SQL contained 
 
 =head2 Method
 
-=head3 L<< ($sql, @binds) = $sql_maker->join_select($table, $join_conds, \@fields, \%where, \%opt) >>
+=head3 C<< ($sql, @binds) = $sql_maker->join_select($table, $join_conds, \@fields, \%where, \%opt) >>
 
-L<$table>, L<\@fields>, L<\%where> and L<\%opt> are same as arguments of L<< $sql_maker->select >>.
+C<$table>, C<\@fields>, C<\%where> and C<\%opt> are same as arguments of C<< $sql_maker->select >>.
 
-L<$join_conds> is an ArrayRef containing sequenced pair of L<$table> and L<$join_cond> as follows.
+C<$join_conds> is an ArrayRef containing sequenced pair of C<$table> and C<$join_cond> as follows.
 
     [
         'user_item' => {'user.id' => 'user_item.user_id'},
@@ -90,7 +90,7 @@ L<$join_conds> is an ArrayRef containing sequenced pair of L<$table> and L<$join
         ...
     ]
 
-Each <$join_cond> can be ArrayRef, HashRef and String same as condition argument of L<SQL::Maker::Select#add_join>.
+Each C<$join_cond> can be ArrayRef, HashRef and String same as condition argument of L<SQL::Maker::Select>'s C<add_join> method.
 
 Join type is 'inner' by default. If you want to specify join type, you can use ArrayRef like follows.
 
